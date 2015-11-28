@@ -1,0 +1,28 @@
+{
+  "name": "PipaJS",
+  "version": "0.0.1",
+  "description": "A router and middleware extension for ExpressJS",
+  "preferGlobal": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Faris <madebyais@gmail.com> (http://madebyais.com)",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.5.0",
+    "path": "^0.12.7",
+    "underscore": "^1.8.3"
+  },
+  "keywords": [
+    "pipa",
+    "express",
+    "routes",
+    "router",
+    "middleware",
+    "app",
+    "api",
+    "json",
+    "rest",
+    "restful"
+  ]
+}
