@@ -1,6 +1,6 @@
 {
   "name": "pipa",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A router and middleware extension for ExpressJS",
   "preferGlobal": true,
   "scripts": {
@@ -24,5 +24,12 @@
     "json",
     "rest",
     "restful"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madebyais/pipajs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/madebyais/pipajs/issues"
+  }
 }
