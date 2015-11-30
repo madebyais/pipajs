@@ -1,0 +1,6 @@
+{
+	"GET /me": [
+		"Auth.ensureAuth",
+		"User.getProfile"
+	]
+}

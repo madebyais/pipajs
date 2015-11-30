@@ -1,0 +1,15 @@
+{
+  "name": "pipajs-sample",
+  "version": "1.0.0",
+  "description": "PipaJS code samples",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Faris <madebyais@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ais-ejs-mate": "^1.0.1",
+    "express": "^4.13.3"
+  }
+}

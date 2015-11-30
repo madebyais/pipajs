@@ -137,6 +137,10 @@ module.exports = {
 }
 ```
 
+### Code Sample
+
+You can try to run the code sample in `sample` folder.
+
 ### Contact
 
 If you have any questions, feedback, idea or anything, please drop me a message at `madebyais@gmail.com`

@@ -1,0 +1,17 @@
+body {
+	background: url(http://lorempixel.com/image_output/city-q-c-1366-768-4.jpg) no-repeat;
+	background-size: cover;
+}
+
+.text {
+	font-family: arial;
+	color: #fff;
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -150px;
+	margin-left: -150px;
+	text-align: center;
+}
