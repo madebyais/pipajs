@@ -1,6 +1,6 @@
 {
   "name": "pipa",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A router and middleware extension for ExpressJS",
   "preferGlobal": true,
   "scripts": {
