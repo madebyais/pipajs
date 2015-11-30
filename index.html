@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Pipajs by madebyais</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Pipajs</h1>
+      <h2 class="project-tagline">PIPA is a router and middleware extensions for ExpressJS</h2>
+      <a href="https://github.com/madebyais/pipajs" class="btn">View on GitHub</a>
+      <a href="https://github.com/madebyais/pipajs/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/madebyais/pipajs/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="pipa" class="anchor" href="#pipa" aria-hidden="true"><span class="octicon octicon-link"></span></a>PIPA</h1>
+
+<blockquote>
+<p>PIPA is a router and middleware extensions for ExpressJS.</p>
+</blockquote>
+
+<h3>
+<a id="why-pipa" class="anchor" href="#why-pipa" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why PIPA</h3>
+
+<blockquote>
+<p>The idea of PIPA is about how to create ExpressJS router in an easy-way, readable and the middleware to be re-usable.</p>
+</blockquote>
+
+<h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
+
+<div class="highlight highlight-source-shell"><pre>$ npm install pipa</pre></div>
+
+<h3>
+<a id="how-to" class="anchor" href="#how-to" aria-hidden="true"><span class="octicon octicon-link"></span></a>How-To</h3>
+
+<p>There are two ways in how to use PIPA, <code>simple-mode</code> and <code>advance-mode</code>.</p>
+
+<h4>
+<a id="how-to-simple-mode" class="anchor" href="#how-to-simple-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>How-To-Simple-Mode</h4>
+
+<p>1 - Create your Express app and add PIPA.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> express <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>express<span class="pl-pds">'</span></span>)
+<span class="pl-k">var</span> app <span class="pl-k">=</span> <span class="pl-en">express</span>()
+<span class="pl-k">var</span> Pipa <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>pipa<span class="pl-pds">'</span></span>);
+
+<span class="pl-c">// Pipa</span>
+<span class="pl-c">// @param   object      Express app</span>
+<span class="pl-c">// @param   string      Router folder</span>
+<span class="pl-c">// @param   string      Middleware folder</span>
+
+<span class="pl-k">var</span> pipa <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Pipa</span>(app, <span class="pl-s"><span class="pl-pds">'</span>router<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>middleware<span class="pl-pds">'</span></span>);
+<span class="pl-smi">pipa</span>.<span class="pl-c1">open</span>();
+
+<span class="pl-smi">app</span>.<span class="pl-en">listen</span>(<span class="pl-c1">3000</span>);</pre></div>
+
+<p>2 - Create a middleware folder</p>
+
+<div class="highlight highlight-source-shell"><pre>$ mkdir middleware <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> middlware</pre></div>
+
+<p>3 - Create a middleware file: <code>Index.js</code></p>
+
+<div class="highlight highlight-source-shell"><pre>$ vi Index.js</pre></div>
+
+<p>4 - Add a <code>showIndex</code> function to <code>Index.js</code></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">module</span>.<span class="pl-smi">exports</span> <span class="pl-k">=</span> {
+    <span class="pl-en">showIndex</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">req</span>, <span class="pl-smi">res</span>, <span class="pl-smi">next</span>) {
+        <span class="pl-smi">res</span>.<span class="pl-en">json</span>({ message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Hello world PIPA!<span class="pl-pds">'</span></span> });
+    }
+};</pre></div>
+
+<p>5 - Create a router folder in your folder project</p>
+
+<div class="highlight highlight-source-shell"><pre>$ mkdir router <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> router</pre></div>
+
+<p>6 - Afterward, create a route file: <code>index.json</code></p>
+
+<div class="highlight highlight-source-shell"><pre>$ vi Index.json</pre></div>
+
+<p>7 - Add a http method, url path and also the middleware name to handle the request</p>
+
+<div class="highlight highlight-source-json"><pre>{
+    <span class="pl-s"><span class="pl-pds">"</span>GET /<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Index.showIndex<span class="pl-pds">"</span></span>
+}</pre></div>
+
+<blockquote>
+<p>Explanation:
+<code>GET /</code> means <code>app.get('/', ...);</code>, you can also use <code>POST</code>, <code>PUT</code> and <code>DELETE</code> methods.</p>
+
+<p>Explanation:
+The <code>Index.showIndex</code> means that it will execute <code>showIndex</code> function 
+in <code>Index.js</code> file under the middleware folder that we have created previously.</p>
+
+<p>Explanation:
+The <code>Index.json</code> will automatically translated into <code>/</code> (root url path). 
+For example, if you want to create a <code>/user</code> url path, you only need to create a <code>User.json</code> route file. So all routes inside <code>User.json</code> file will be able to be accessed under the <code>/user</code> url path, e.g. <code>GET /:id</code>, you can access it by <code>/user/:id</code></p>
+</blockquote>
+
+<p>8 - Now run your application by executing <code>node app.js</code> and access <code>http://localhost:8000/</code> in your favorite browser.</p>
+
+<h4>
+<a id="how-to-advance-mode" class="anchor" href="#how-to-advance-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>How-To-Advance-Mode</h4>
+
+<p>In <code>advance-mode</code>, we will try to separate <code>base url path</code> and <code>api url path</code>. The <code>router</code> folder will look like below.</p>
+
+<div class="highlight highlight-source-shell"><pre>router/
+    <span class="pl-k">|</span>- api/
+        <span class="pl-k">|</span>- v1
+            <span class="pl-k">|</span>- User.json
+            <span class="pl-k">|</span>- History.json
+        <span class="pl-k">|</span>- v1.2
+            <span class="pl-k">|</span>- User.json
+    <span class="pl-k">|</span>- Index.json
+    <span class="pl-k">|</span>- User.json</pre></div>
+
+<blockquote>
+<p>Explanation: According to folder structure above, PIPA will automatically generate several endpoints as below.</p>
+</blockquote>
+
+<p><code>API</code></p>
+
+<ul>
+<li>/api/v1/user</li>
+<li>/api/v1/history</li>
+<li>/api/v1.2/user</li>
+</ul>
+
+<p><code>BASE</code></p>
+
+<ul>
+<li>/</li>
+<li>/user</li>
+</ul>
+
+<p>You can also use multiple middleware. For example, you want to get current user profile and need to check whether the request is authorized. The <code>req.pipa</code> object will come to rescue :D</p>
+
+<p>In <code>/api/v1/User.json</code> router file, please add :</p>
+
+<div class="highlight highlight-source-json"><pre>{
+    <span class="pl-s"><span class="pl-pds">"</span>GET /me<span class="pl-pds">"</span></span>: [
+        <span class="pl-s"><span class="pl-pds">"</span>Auth.ensureAuth<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>User.getProfile<span class="pl-pds">"</span></span>
+    ]
+}</pre></div>
+
+<p>Create a new middleware file <code>Auth.js</code></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">module</span>.<span class="pl-smi">exports</span> <span class="pl-k">=</span> {
+    <span class="pl-en">ensureAuth</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">req</span>, <span class="pl-smi">res</span>, <span class="pl-smi">next</span>) {
+        <span class="pl-c">// Check whether there's an `access_token` in the request</span>
+        <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-smi">req</span>.<span class="pl-smi">query</span>.<span class="pl-smi">access_token</span>) 
+            <span class="pl-k">return</span> <span class="pl-smi">res</span>.<span class="pl-c1">status</span>(<span class="pl-c1">401</span>).<span class="pl-en">json</span>({ code<span class="pl-k">:</span> <span class="pl-c1">401</span>, status<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>, message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>You are not authorized<span class="pl-pds">'</span></span> });
+
+        <span class="pl-c">// Do some access token checking and pass it to the next middleware</span>
+        <span class="pl-en">next</span>({ access_token<span class="pl-k">:</span> <span class="pl-smi">req</span>.<span class="pl-smi">query</span>.<span class="pl-smi">access_token</span>, access_token_status<span class="pl-k">:</span> <span class="pl-c1">true</span> });
+    }
+}</pre></div>
+
+<p>Afterward, in <code>User.js</code> middleware file, you can get the previous data by accessing the <code>req.pipa</code> object</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">module</span>.<span class="pl-smi">exports</span> <span class="pl-k">=</span> {
+    <span class="pl-en">getProfile</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">req</span>, <span class="pl-smi">res</span>, <span class="pl-smi">next</span>) {
+        <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-smi">req</span>.<span class="pl-smi">pipa</span>.<span class="pl-smi">access_token_status</span>)
+            <span class="pl-k">return</span> <span class="pl-smi">res</span>.<span class="pl-c1">status</span>(<span class="pl-c1">500</span>).<span class="pl-en">json</span>({ code<span class="pl-k">:</span> <span class="pl-c1">500</span>, status<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>, message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>access_token is not valid.<span class="pl-pds">'</span></span> });
+
+        <span class="pl-c">// Get user profile based on `access_token` which you can get from `req.pipa.access_token`</span>
+        <span class="pl-smi">res</span>.<span class="pl-c1">status</span>(<span class="pl-c1">200</span>).<span class="pl-en">json</span>({ code<span class="pl-k">:</span> <span class="pl-c1">200</span>, status<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>success<span class="pl-pds">'</span></span>, data<span class="pl-k">:</span> { user<span class="pl-k">:</span> { <span class="pl-s"><span class="pl-pds">`</span>user object<span class="pl-pds">`</span></span> } });
+    }
+}</pre></div>
+
+<h3>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact</h3>
+
+<p>If you have any questions, feedback, idea or anything, please drop me a message at <code>madebyais@gmail.com</code></p>
+
+<h3>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h3>
+
+<p><a href="LICENSE">MIT</a> Copyright © 2015 Faris</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/madebyais/pipajs">Pipajs</a> is maintained by <a href="https://github.com/madebyais">madebyais</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
