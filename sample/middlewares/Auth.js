@@ -35,7 +35,9 @@ module.exports = {
 			age: '27 years old'
 		};
 
-		next({ user: user_data });
+		req.pipa.user = user_data;
+
+		next();
 	}
 
 };

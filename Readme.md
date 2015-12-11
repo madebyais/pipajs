@@ -119,8 +119,10 @@ module.exports = {
         if (!req.query.access_token) 
             return res.status(401).json({ code: 401, status: 'error', message: 'You are not authorized' });
         
-        // Do some access token checking and pass it to the next middleware
-        next({ access_token: req.query.access_token, access_token_status: true });
+        // Do some access token checking and pass it `req.pipa` to the next middleware
+        req.pipa = { access_token: req.query.access_token, access_token_status: true };
+        
+        next();
     }
 }
 ```
