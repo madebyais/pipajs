@@ -160,8 +160,10 @@ For example, if you want to create a <code>/user</code> url path, you only need 
         <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-smi">req</span>.<span class="pl-smi">query</span>.<span class="pl-smi">access_token</span>) 
             <span class="pl-k">return</span> <span class="pl-smi">res</span>.<span class="pl-c1">status</span>(<span class="pl-c1">401</span>).<span class="pl-en">json</span>({ code<span class="pl-k">:</span> <span class="pl-c1">401</span>, status<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>, message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>You are not authorized<span class="pl-pds">'</span></span> });
 
-        <span class="pl-c">// Do some access token checking and pass it to the next middleware</span>
-        <span class="pl-en">next</span>({ access_token<span class="pl-k">:</span> <span class="pl-smi">req</span>.<span class="pl-smi">query</span>.<span class="pl-smi">access_token</span>, access_token_status<span class="pl-k">:</span> <span class="pl-c1">true</span> });
+        <span class="pl-c">// Do some access token checking and pass it `req.pipa` to the next middleware</span>
+        <span class="pl-smi">req</span>.<span class="pl-smi">pipa</span> <span class="pl-k">=</span> { access_token<span class="pl-k">:</span> <span class="pl-smi">req</span>.<span class="pl-smi">query</span>.<span class="pl-smi">access_token</span>, access_token_status<span class="pl-k">:</span> <span class="pl-c1">true</span> };
+
+        <span class="pl-en">next</span>();
     }
 }</pre></div>
 
