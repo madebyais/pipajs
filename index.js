@@ -2,7 +2,7 @@
 | 	PIPA.JS
 ---------------------------------------------------------------------------
 |
-|	Copyright 2015. Faris.
+|	Copyright 2015-2016. Faris.
 |	http://www.madebyais.com/
 |	http://github.com/~madebyais
 |

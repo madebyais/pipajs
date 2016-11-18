@@ -1,9 +1,10 @@
 body {
-	background: url(http://lorempixel.com/image_output/city-q-c-1366-768-4.jpg) no-repeat;
+	background: url(http://madebyais.com/assets/images/bg.jpg) no-repeat;
 	background-size: cover;
 }
 
 .text {
+	color: #fff;
 	font-family: arial;
 	color: #fff;
 	width: 300px;
